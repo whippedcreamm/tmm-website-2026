@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/zzahpyx/public_html/
-    - /bin/rsync -av --delete ./ $DEPLOYPATH
+    - export DEPLOY_PATH=/home/zzahpiyx/public_html/
+    - /bin/rsync -av --delete ./templatemo_545_finance_business/ $DEPLOY_PATH
