@@ -41,7 +41,7 @@ h6 {
 }
 
 a.filled-button {
-	background-color: #A38A52;
+	background-color: #a48b52;
 	color: #fff;
 	font-size: 13px;
 	text-transform: uppercase;
@@ -54,7 +54,7 @@ a.filled-button {
 
 a.filled-button:hover {
 	background-color: #fff;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 a.border-button {
@@ -72,7 +72,7 @@ a.border-button {
 
 a.border-button:hover {
 	background-color: #fff;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .section-heading {
@@ -88,7 +88,7 @@ a.border-button:hover {
 
 .section-heading em {
 	font-style: normal;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .section-heading span {
@@ -102,7 +102,7 @@ a.border-button:hover {
 
 #preloader {
 	overflow: hidden;
-	background: #A38A52;
+	background: #a48b52;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -186,7 +186,7 @@ a.border-button:hover {
 /* Sub Header Style */
 
 .sub-header {
-	background-color: #A38A52;
+	background-color: #a48b52;
 	height: 46px;
 	line-height: 46px;
 }
@@ -271,7 +271,7 @@ header .navbar {
 }
 
 .background-header .navbar-brand h2 {
-	color: #A38A52 !important;
+	color: #a48b52 !important;
 }
 
 .background-header .navbar-nav a.nav-link {
@@ -283,21 +283,18 @@ header .navbar {
 .background-header .navbar-nav .nav-link.current,
 .background-header .navbar-nav .nav-link.show,
 .background-header .navbar-nav .show>.nav-link {
-	color: #A38A52 !important;
+	color: #a48b52 !important;
 }
 
-color: #fff;
-transition: all 0.5s;
-margin-top: 5px;
-}
+
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .active>.nav-link,
 .navbar .navbar-nav .nav-link.current,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
-	color: #A38A52;
-	border-bottom: 3px solid #A38A52;
+	color: #a48b52;
+	border-bottom: 3px solid #a48b52;
 }
 
 .navbar .navbar-toggler-icon {
@@ -317,7 +314,7 @@ margin-top: 5px;
 
 .navbar .navbar-toggler-icon:after {
 	content: '\f0c9';
-	color: #A38A52;
+	color: #a48b52;
 	font-size: 18px;
 	line-height: 26px;
 	font-family: 'FontAwesome';
@@ -445,7 +442,7 @@ ul.slick-dots {
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 1px;
-	color: #A38A52;
+	color: #a48b52;
 	animation: fadeOutRight 1s both;
 }
 
@@ -586,7 +583,7 @@ ul.slick-dots {
 /* Request Form */
 
 .request-form {
-	background-color: #A38A52;
+	background-color: #a48b52;
 	padding: 40px 0px;
 	color: #fff;
 }
@@ -670,7 +667,7 @@ ul.slick-dots {
 
 .fun-facts em {
 	font-style: normal;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .fun-facts p {
@@ -691,7 +688,7 @@ ul.slick-dots {
 
 .count-digit {
 	margin: 5px 0px;
-	color: #A38A52;
+	color: #a48b52;
 	font-weight: 700;
 	font-size: 36px;
 }
@@ -750,7 +747,7 @@ ul.slick-dots {
 
 .more-info .right-content em {
 	font-style: normal;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .more-info .right-content p {
@@ -795,7 +792,7 @@ ul.slick-dots {
 	margin-top: 8px;
 	font-weight: 600;
 	font-size: 14px;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .testimonial-item img {
@@ -829,7 +826,7 @@ ul.slick-dots {
 }
 
 .callback-form .contact-form {
-	background-color: #A38A52;
+	background-color: #a48b52;
 	padding: 60px;
 	border-radius: 5px;
 	text-align: center;
@@ -909,11 +906,11 @@ ul.slick-dots {
 
 .callback-form .contact-form button.border-button:hover {
 	background-color: #fff;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 .contact-us .contact-form button.filled-button {
-	background-color: #A38A52;
+	background-color: #a48b52;
 	color: #fff;
 	border: none;
 	font-size: 13px;
@@ -931,7 +928,7 @@ ul.slick-dots {
 
 .contact-us .contact-form button.filled-button:hover {
 	background-color: #fff;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 
@@ -1006,7 +1003,7 @@ footer ul.social-icons li a {
 }
 
 footer ul.social-icons li a:hover {
-	background-color: #A38A52;
+	background-color: #a48b52;
 }
 
 footer ul.menu-list li {
@@ -1024,7 +1021,7 @@ footer ul.menu-list li a {
 }
 
 footer ul.menu-list li a:hover {
-	color: #A38A52;
+	color: #a48b52;
 }
 
 footer .contact-form input {
@@ -1089,7 +1086,7 @@ footer .contact-form ::placeholder {
 footer .contact-form button.filled-button {
 	background-color: transparent;
 	color: #fff;
-	background-color: #A38A52;
+	background-color: #a48b52;
 	border: none;
 	font-size: 13px;
 	text-transform: uppercase;
@@ -1106,7 +1103,7 @@ footer .contact-form button.filled-button {
 
 footer .contact-form button.filled-button:hover {
 	background-color: #fff;
-	color: #A38A52;
+	color: #a48b52;
 }
 
 
@@ -1184,7 +1181,7 @@ footer .contact-form button.filled-button:hover {
 }
 
 .team-item .down-content span {
-	color: #A38A52;
+	color: #a48b52;
 	font-weight: 600;
 	font-size: 14px;
 	display: block;
@@ -1222,7 +1219,7 @@ footer .contact-form button.filled-button:hover {
 	width: 100%;
 	padding: 30px 30px;
 	display: inline-block;
-	background-color: #A38A52;
+	background-color: #a48b52;
 	font-size: 20px;
 	color: #121212;
 	letter-spacing: 0.5px;
@@ -1291,7 +1288,7 @@ footer .contact-form button.filled-button:hover {
 }
 
 .contact-information .contact-item i {
-	color: #A38A52;
+	color: #a48b52;
 	font-size: 48px;
 	margin-bottom: 40px;
 }
@@ -1309,7 +1306,7 @@ footer .contact-form button.filled-button:hover {
 
 .contact-information .contact-item a {
 	font-weight: 600;
-	color: #A38A52;
+	color: #a48b52;
 	font-size: 15px;
 }
 
@@ -1447,18 +1444,19 @@ footer .contact-form button.filled-button:hover {
 	.navbar .navbar-nav .nav-link.current,
 	.navbar .navbar-nav .nav-link.show,
 	.navbar .navbar-nav .show>.nav-link {
-		color: #A38A52 !important;
+		color: #a48b52 !important;
 		border-bottom: none !important;
 	}
 }
+
 /* Logo Image Sizing */
 .navbar .navbar-brand img {
 	height: 40px;
 	width: auto;
 	-webkit-transition: all .3s ease 0s;
-    -moz-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
+	-moz-transition: all .3s ease 0s;
+	-o-transition: all .3s ease 0s;
+	transition: all .3s ease 0s;
 }
 
 /* Navbar Menu Spacing and Hover Fixes */
@@ -1485,13 +1483,13 @@ footer .contact-form button.filled-button:hover {
 .navbar .navbar-nav .nav-link.current,
 .navbar .navbar-nav .nav-link.show,
 .navbar .navbar-nav .show>.nav-link {
-	color: #A38A52 !important;
-	border-bottom: 3px solid #A38A52;
+	color: #a48b52 !important;
+	border-bottom: 3px solid #a48b52;
 }
 
 /* Smooth Scrolling for One-Page Website */
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* Brighter Color Palette - TMM Original Colors */
@@ -1501,7 +1499,8 @@ html {
 .fun-facts em,
 .more-info .right-content em,
 .testimonials h2 em {
-	color: #D4AF37 !important; /* Brighter gold */
+	color: #D4AF37 !important;
+	/* Brighter gold */
 }
 
 /* Service cards - brighter text colors */
@@ -1635,7 +1634,7 @@ a.border-button:hover,
 
 .testimonials .testimonial-item .inner-content {
 	background-color: #ffffff !important;
-	box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .testimonials .section-heading h2 {
