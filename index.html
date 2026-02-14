@@ -103,6 +103,73 @@
     .carousel-nav-next {
       right: 10px;
     }
+
+    /* Testimonial Carousel Styles */
+    .testimonial-carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .testimonial-carousel-track {
+      display: flex;
+      gap: 0;
+      transition: transform 0.5s ease;
+      justify-content: flex-start;
+    }
+
+    .testimonial-carousel-item {
+      flex: 0 0 100%;
+    }
+
+    .testimonial-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border-radius: 9999px;
+      padding: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      cursor: pointer;
+      color: #1b3a5f;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-nav-btn:hover {
+      background: #f8f9fa;
+      color: #c5a059;
+    }
+
+    .testimonial-nav-prev {
+      left: 0;
+    }
+
+    .testimonial-nav-next {
+      right: 0;
+    }
+
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-dot.active {
+      background: #c5a059;
+      width: 24px;
+    }
   </style>
 </head>
 
@@ -447,30 +514,72 @@
         </p>
       </div>
 
-      <div class="max-w-4xl mx-auto">
-        <div class="testimonial-card fade-in">
-          <div class="flex items-start mb-4">
-            <svg class="w-10 h-10 text-tmm-gold mr-4" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <div class="flex-1">
-              <p class="text-lg text-gray-700 mb-4">
-                "Kerja Tim TMMFlow Bagus dan Cepat, masalah administrasi Coretax dapat teratasi."
-              </p>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 bg-tmm-navy rounded-full flex items-center justify-center text-white font-bold mr-4">
-                  B
+      <div class="testimonial-carousel-container">
+        <button id="testimonial-prev" class="testimonial-nav-btn testimonial-nav-prev">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <div id="testimonial-track" class="testimonial-carousel-track">
+          <!-- Testimonial 1 (Rania Amina) -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-card h-full fade-in">
+              <div class="flex items-start mb-4">
+                <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <div class="flex-1">
+                  <p class="text-lg text-gray-700 mb-6 italic">
+                    Sangat puas dengan layanan dan konsultasi perpajakan serta keuangan kantor dengan TMM. Penanganan
+                    case
+                    by case yang tepat sasaran dan komunikatif, sangat direkomendasikan untuk yang beneran tidak mau
+                    pusing dan ribet ihwal finansial perpajakan. Sudah dua tahun terbantu, semoga makin banyak yang
+                    terbantu juga.
+                  </p>
+                  <div class="flex items-center">
+                    <div>
+                      <p class="font-semibold text-tmm-navy text-lg">Pak Rania Amina</p>
+                      <p class="text-tmm-gold font-medium">Nenggala Kreatif Indonesia</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p class="font-semibold text-tmm-navy">Pak Iwan S. Tahari</p>
-                  <p class="text-gray-600 text-sm">Sepatu Fans</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 (Iwan Tahari) -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-card h-full fade-in">
+              <div class="flex items-start mb-4">
+                <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <div class="flex-1">
+                  <p class="text-lg text-gray-700 mb-6 italic">
+                    Kerja Tim TMMFlow Bagus dan Cepat, masalah administrasi Coretax dapat teratasi.
+                  </p>
+                  <div class="flex items-center">
+                    <div>
+                      <p class="font-semibold text-tmm-navy text-lg">Pak Iwan S. Tahari</p>
+                      <p class="text-tmm-gold font-medium">Sepatu Fans</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <button id="testimonial-next" class="testimonial-nav-btn testimonial-nav-next">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <div id="testimonial-dots" class="testimonial-dots"></div>
       </div>
     </div>
   </section>

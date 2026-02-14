@@ -341,6 +341,70 @@ function initClientCarousel() {
 }
 
 // ============================================
+// TESTIMONIAL CAROUSEL
+// ============================================
+function initTestimonialCarousel() {
+    const track = document.getElementById('testimonial-track');
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+    const dotsContainer = document.getElementById('testimonial-dots');
+    const items = document.querySelectorAll('.testimonial-carousel-item');
+
+    if (!track || items.length === 0) return;
+
+    let currentIndex = 0;
+    const totalItems = items.length;
+
+    // Create dots
+    if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalItems; i++) {
+            const dot = document.createElement('div');
+            dot.className = `testimonial-dot ${i === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateCarousel() {
+        const itemWidth = items[0].getBoundingClientRect().width;
+        const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+        const offset = currentIndex * (itemWidth + gap);
+
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // Update dots
+        const dots = document.querySelectorAll('.testimonial-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        updateCarousel();
+    });
+
+    // Initial check
+    updateCarousel();
+}
+
+// ============================================
 // INITIALIZE ALL
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -348,6 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initNavbarScroll();
     initHeroCarousel();
     initClientCarousel();
+    initTestimonialCarousel();
     initSmoothScroll();
     initFormValidation();
     initScrollAnimations();
