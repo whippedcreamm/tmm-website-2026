@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+*.log
+
+# Backup files
+*.backup
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
