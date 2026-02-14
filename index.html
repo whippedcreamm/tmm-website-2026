@@ -1,4 +1,491 @@
 <!DOCTYPE html>
+<html lang="id" data-theme="tmm">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>TMM - Finance & Tax Consultant | Triruang Makna Manggala</title>
+    <meta name="title" content="TMM - Finance & Tax Consultant | Triruang Makna Manggala">
+    <meta name="description"
+        content="Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi jangka panjang. Layanan Pembukuan, Perpajakan, dan Konsultansi.">
+    <meta name="keywords"
+        content="konsultan pajak, konsultan keuangan, pembukuan, perpajakan, tax consultant, finance consultant, TMM">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tmm.co.id/">
+    <meta property="og:title" content="TMM - Finance & Tax Consultant">
+    <meta property="og:description"
+        content="Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi jangka panjang.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tmm.co.id/">
+    <meta property="twitter:title" content="TMM - Finance & Tax Consultant">
+    <meta property="twitter:description"
+        content="Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi jangka panjang.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/images/logo-navy.svg">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================ -->
+    <nav class="navbar-tmm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="./assets/images/logo-white.svg" alt="TMM Logo" class="h-10 md:h-12">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-tmm-gold font-medium">Beranda</a>
+                    <a href="tentang-kami.html" class="text-white hover:text-tmm-gold font-medium">Tentang Kami</a>
+                    <a href="layanan.html" class="text-white hover:text-tmm-gold font-medium">Layanan</a>
+                    <a href="kontak.html" class="text-white hover:text-tmm-gold font-medium">Kontak</a>
+                    <a href="kontak.html" class="btn-primary-tmm">Konsultasi Gratis</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-6 border-b border-tmm-navy-light">
+                <img src="./assets/images/logo-white.svg" alt="TMM Logo" class="h-10">
+                <button id="mobile-menu-close" class="text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-4 p-6">
+                <a href="index.html"
+                    class="text-white text-lg font-medium py-3 border-b border-tmm-navy-light">Beranda</a>
+                <a href="tentang-kami.html"
+                    class="text-white text-lg font-medium py-3 border-b border-tmm-navy-light">Tentang Kami</a>
+                <a href="layanan.html"
+                    class="text-white text-lg font-medium py-3 border-b border-tmm-navy-light">Layanan</a>
+                <a href="kontak.html"
+                    class="text-white text-lg font-medium py-3 border-b border-tmm-navy-light">Kontak</a>
+                <a href="kontak.html" class="btn-primary-tmm mt-4 text-center">Konsultasi Gratis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- HERO CAROUSEL -->
+    <!-- ============================================ -->
+    <section class="relative">
+        <!-- Slide 1: Bijak Hari Ini & Yakin Hari Esok -->
+        <div class="hero-slide">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in">
+                    Bijak Hari Ini & Yakin Hari Esok
+                </h1>
+                <p class="text-xl md:text-2xl mb-4 text-tmm-gold-light font-semibold fade-in">
+                    Kami Siap Membantu Anda
+                </p>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200 fade-in">
+                    Rencanakan Keuangan dan Perpajakan Anda dengan kami, Mitra terbaik solusi keuangan Anda di masa
+                    depan.
+                </p>
+                <a href="kontak.html" class="btn-primary-tmm inline-block fade-in">
+                    Hubungi Kami Sekarang
+                </a>
+            </div>
+        </div>
+
+        <!-- Slide 2: Bersaing dengan Market -->
+        <div class="hero-slide hidden">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Bersaing dengan Market & Siap Jadi Unggul
+                </h1>
+                <p class="text-xl md:text-2xl mb-4 text-tmm-gold-light font-semibold">
+                    Buat Bisnis Anda Jadi Siap
+                </p>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200">
+                    Kami hadir dengan layanan profesional yang membantu bisnis Anda tumbuh lebih kuat. Solusi yang
+                    efektif, relevan, dan siap menjawab kebutuhan pasar yang terus berkembang.
+                </p>
+                <a href="layanan.html" class="btn-primary-tmm inline-block">
+                    Lihat Selengkapnya
+                </a>
+            </div>
+        </div>
+
+        <!-- Slide 3: Bridging Statement -->
+        <div class="hero-slide hidden">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Asisten Perpajakan dan Financial Advisor?
+                </h1>
+                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200">
+                    Kami berkomitmen memberikan layanan terbaik dengan mengutamakan ketepatan, efisiensi, dan
+                    perencanaan dengan mengikuti standar keuangan.
+                </p>
+                <a href="kontak.html" class="btn-primary-tmm inline-block">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+
+        <!-- Carousel Dots -->
+        <div class="absolute bottom-8 left-0 right-0">
+            <div class="carousel-dots">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES OVERVIEW -->
+    <!-- ============================================ -->
+    <section id="layanan" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">
+                    Semua Yang Anda Butuhkan Ada Di Sini
+                </h2>
+                <p class="section-subtitle max-w-3xl mx-auto">
+                    Dari Perencanaan Hingga Pelaksanaan. Kami Siap Membantu.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1: Pembukuan -->
+                <div class="service-card fade-in">
+                    <div class="w-16 h-16 bg-tmm-gold bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-tmm-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tmm-navy mb-4">Pembukuan</h3>
+                    <p class="text-gray-600 mb-6">
+                        Pembuatan pembukuan alur kas keuangan day-to-day operations dan menciptakan alur keuangan yang
+                        sehat.
+                    </p>
+                    <a href="layanan.html#pembukuan"
+                        class="text-tmm-gold font-semibold hover:text-tmm-gold-dark inline-flex items-center">
+                        Lihat Detail
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service 2: Perpajakan -->
+                <div class="service-card fade-in">
+                    <div class="w-16 h-16 bg-tmm-gold bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-tmm-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tmm-navy mb-4">Perpajakan</h3>
+                    <p class="text-gray-600 mb-6">
+                        Perhitungan pajak yang lebih akurat, perlu dilaporkan, dan dibayarkan dalam berbagai case
+                        pemasukan.
+                    </p>
+                    <a href="layanan.html#perpajakan"
+                        class="text-tmm-gold font-semibold hover:text-tmm-gold-dark inline-flex items-center">
+                        Lihat Detail
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Service 3: Konsultansi -->
+                <div class="service-card fade-in">
+                    <div class="w-16 h-16 bg-tmm-gold bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-tmm-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tmm-navy mb-4">Konsultansi</h3>
+                    <p class="text-gray-600 mb-6">
+                        Konsultasi komprehensif terkait kondisi keuangan berdasarkan baseline dan pasca-kejadian
+                        keuangan.
+                    </p>
+                    <a href="layanan.html#konsultansi"
+                        class="text-tmm-gold font-semibold hover:text-tmm-gold-dark inline-flex items-center">
+                        Lihat Detail
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- STATISTICS SECTION -->
+    <!-- ============================================ -->
+    <section id="statistik" class="section-padding gradient-bg-navy text-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    Mendukung Pertumbuhan Bisnis Anda Kedepan
+                </h2>
+                <p class="text-xl text-tmm-gold-light mb-4">
+                    Solusi Yang Kami Tawarkan
+                </p>
+                <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+                    Kami berkomitmen untuk memberikan solusi yang terbaik dengan mengutamakan ketepatan, efisiensi, dan
+                    perencanaan dengan mengikuti standar keuangan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <!-- Stat 1 -->
+                <div class="stat-card fade-in">
+                    <div class="stat-number">576</div>
+                    <div class="stat-label">Jam Kerja</div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="stat-card fade-in">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Layanan Keuangan</div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="stat-card fade-in">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">SLA Terpenuhi</div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="stat-card fade-in">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Klien Puas</div>
+                </div>
+            </div>
+
+            <div class="text-center fade-in">
+                <a href="kontak.html" class="btn-primary-tmm inline-block">
+                    Konsultasikan Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- WHY CHOOSE US / CLIENTS -->
+    <!-- ============================================ -->
+    <section id="mengapa-kami" class="section-padding bg-white">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Dipercaya Oleh Klien Terbaik</h2>
+                <p class="section-subtitle">
+                    Kami bangga bekerja sama dengan berbagai perusahaan terkemuka
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
+                    <span class="text-2xl font-bold text-tmm-navy">IMTEK</span>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
+                    <span class="text-2xl font-bold text-tmm-navy">OpenInfra</span>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
+                    <span class="text-2xl font-bold text-tmm-navy">Nenggala</span>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
+                    <span class="text-2xl font-bold text-tmm-navy">FANS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIALS -->
+    <!-- ============================================ -->
+    <section id="testimoni" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="section-title">Apa Yang Mereka Katakan Tentang Kami</h2>
+                <p class="section-subtitle">
+                    Testimoni dari Klien-Klien Kami yang Luar Biasa
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="testimonial-card fade-in">
+                    <div class="flex items-start mb-4">
+                        <svg class="w-10 h-10 text-tmm-gold mr-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        </svg>
+                        <div class="flex-1">
+                            <p class="text-lg text-gray-700 mb-4">
+                                "Kerja Tim TMMFlow Bagus dan Cepat, masalah administrasi Coretax dapat teratasi."
+                            </p>
+                            <div class="flex items-center">
+                                <div
+                                    class="w-12 h-12 bg-tmm-navy rounded-full flex items-center justify-center text-white font-bold mr-4">
+                                    B
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-tmm-navy">Bpk. Bambang</p>
+                                    <p class="text-gray-600 text-sm">Klien TMM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CTA SECTION -->
+    <!-- ============================================ -->
+    <section id="cta" class="section-padding gradient-bg-navy text-white">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="max-w-3xl mx-auto fade-in">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                    Dapatkan Konsultasi
+                </h2>
+                <p class="text-xl mb-8 text-gray-200">
+                    Hubungi Kami dan Dapatkan Konsultasi Gratis
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="kontak.html" class="btn-primary-tmm inline-block">
+                        Hubungi Kami Sekarang
+                    </a>
+                    <a href="layanan.html" class="btn-outline-tmm inline-block">
+                        Lihat Layanan Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer-tmm">
+        <div class="container mx-auto px-4 md:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <img src="./assets/images/logo-white.svg" alt="TMM Logo" class="h-12 mb-4">
+                    <p class="text-gray-300 mb-4">
+                        Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi
+                        jangka panjang.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-tmm-gold transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-tmm-gold transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-tmm-gold transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-tmm-gold transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-tmm-gold mb-4">Navigasi</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-tmm-gold transition-colors">Beranda</a>
+                        </li>
+                        <li><a href="tentang-kami.html"
+                                class="text-gray-300 hover:text-tmm-gold transition-colors">Tentang Kami</a></li>
+                        <li><a href="layanan.html"
+                                class="text-gray-300 hover:text-tmm-gold transition-colors">Layanan</a></li>
+                        <li><a href="kontak.html" class="text-gray-300 hover:text-tmm-gold transition-colors">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold text-tmm-gold mb-4">Layanan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="layanan.html#pembukuan"
+                                class="text-gray-300 hover:text-tmm-gold transition-colors">Pembukuan</a></li>
+                        <li><a href="layanan.html#perpajakan"
+                                class="text-gray-300 hover:text-tmm-gold transition-colors">Perpajakan</a></li>
+                        <li><a href="layanan.html#konsultansi"
+                                class="text-gray-300 hover:text-tmm-gold transition-colors">Konsultansi</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-tmm-navy-light pt-8 text-center text-gray-400">
+                <p>&copy; 2026 TMM - Triruang Makna Manggala. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20TMM,%20saya%20ingin%20berkonsultasi" target="_blank"
+        class="whatsapp-float" aria-label="Chat WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="./assets/js/main.js"></script>
+</body>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
