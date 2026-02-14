@@ -109,7 +109,27 @@
       position: relative;
       overflow: hidden;
       width: 100%;
+      max-width: 1050px;
+      margin: 0 auto;
       padding: 10px 0;
+    }
+
+    .testimonial-carousel-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-carousel-wrapper {
+        padding: 0 10px;
+      }
+
+      .testimonial-nav-btn {
+        display: none !important;
+      }
     }
 
     .testimonial-carousel-track {
@@ -124,30 +144,7 @@
     }
 
     .testimonial-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: white;
-      border-radius: 9999px;
-      padding: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-      cursor: pointer;
-      color: #1b3a5f;
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-nav-btn:hover {
-      background: #f8f9fa;
-      color: #c5a059;
-    }
-
-    .testimonial-nav-prev {
-      left: 0;
-    }
-
-    .testimonial-nav-next {
-      right: 0;
+      display: none !important;
     }
 
     .testimonial-dots {
@@ -169,6 +166,10 @@
     .testimonial-dot.active {
       background: #c5a059;
       width: 24px;
+    }
+
+    .testimonial-card {
+      padding: 1.25rem 2rem !important;
     }
   </style>
 </head>
@@ -240,14 +241,14 @@
 
       <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in">
-          Bijak Hari Ini & Yakin Hari Esok
+          Mitra Konsultasi Keuangan & Pajak Terpercaya
         </h1>
         <p class="text-xl md:text-2xl mb-4 text-tmm-gold-light font-semibold fade-in">
-          Kami Siap Membantu Anda
+          Keputusan yang Tepat untuk Bisnis yang Berkelanjutan
         </p>
         <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200 fade-in">
-          Rencanakan Keuangan dan Perpajakan Anda dengan kami, Mitra terbaik solusi keuangan Anda di masa
-          depan.
+          Kami membantu individu dan bisnis merencanakan keuangan serta perpajakan secara tepat, patuh, dan
+          berkelanjutan.
         </p>
         <a href="kontak.html" class="btn-primary-tmm inline-block fade-in">
           Hubungi Kami Sekarang
@@ -286,10 +287,10 @@
 
       <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          Asisten Perpajakan dan Financial Advisor?
+          Ahli Perpajakan dan Manajemen Keuangan
         </h1>
         <p class="text-xl md:text-2xl mb-4 text-tmm-gold-light font-semibold">
-          Perencanaan Pajak dengan Baik dan Benar
+          Solusi Perpajakan yang Aman, Patuh, dan Terukur
         </p>
         <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200">
           Kami berkomitmen memberikan layanan terbaik dengan mengutamakan ketepatan, efisiensi, dan
@@ -337,8 +338,7 @@
           </div>
           <h3 class="text-2xl font-bold text-tmm-navy mb-4">Pembukuan</h3>
           <p class="text-gray-600 mb-6">
-            Pembuatan pembukuan alur kas keuangan day-to-day operations dan menciptakan alur keuangan yang
-            sehat.
+            Pengelolaan dan pencatatan keuangan harian untuk menciptakan arus kas yang sehat dan terkontrol.
           </p>
           <a href="layanan.html#pembukuan"
             class="text-tmm-gold font-semibold hover:text-tmm-gold-dark inline-flex items-center">
@@ -361,8 +361,7 @@
           </div>
           <h3 class="text-2xl font-bold text-tmm-navy mb-4">Perpajakan</h3>
           <p class="text-gray-600 mb-6">
-            Perhitungan pajak yang lebih akurat, perlu dilaporkan, dan dibayarkan dalam berbagai case
-            pemasukan.
+            Perhitungan, pelaporan, dan pembayaran pajak secara akurat sesuai dengan ketentuan yang berlaku.
           </p>
           <a href="layanan.html#perpajakan"
             class="text-tmm-gold font-semibold hover:text-tmm-gold-dark inline-flex items-center">
@@ -374,7 +373,7 @@
           </a>
         </div>
 
-        <!-- Service 3: Konsultansi -->
+        <!-- Service 3: Konsultasi -->
         <div class="service-card fade-in">
           <div class="w-16 h-16 bg-tmm-gold bg-opacity-10 rounded-full flex items-center justify-center mb-6">
             <svg class="w-8 h-8 text-tmm-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,9 +382,9 @@
               </path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold text-tmm-navy mb-4">Konsultansi</h3>
+          <h3 class="text-2xl font-bold text-tmm-navy mb-4">Konsultasi</h3>
           <p class="text-gray-600 mb-6">
-            Konsultasi komprehensif terkait kondisi keuangan berdasarkan baseline dan pasca-kejadian
+            Konsultasi komprehensif terkait kondisi keuangan berdasarkan analisis awal dan evaluasi pasca-kejadian
             keuangan.
           </p>
           <a href="layanan.html#konsultansi"
@@ -422,25 +421,25 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
         <!-- Stat 1 -->
         <div class="stat-card fade-in">
-          <div class="stat-number">576</div>
+          <div class="stat-number" data-target="576">0</div>
           <div class="stat-label">Jam Kerja</div>
         </div>
 
         <!-- Stat 2 -->
         <div class="stat-card fade-in">
-          <div class="stat-number">15</div>
+          <div class="stat-number" data-target="15">0</div>
           <div class="stat-label">Layanan Keuangan</div>
         </div>
 
         <!-- Stat 3 -->
         <div class="stat-card fade-in">
-          <div class="stat-number">100%</div>
+          <div class="stat-number" data-target="100" data-suffix="%">0</div>
           <div class="stat-label">SLA Terpenuhi</div>
         </div>
 
         <!-- Stat 4 -->
         <div class="stat-card fade-in">
-          <div class="stat-number">6</div>
+          <div class="stat-number" data-target="6">0</div>
           <div class="stat-label">Klien Puas</div>
         </div>
       </div>
@@ -514,57 +513,59 @@
         </p>
       </div>
 
-      <div class="testimonial-carousel-container">
+      <div class="testimonial-carousel-wrapper">
         <button id="testimonial-prev" class="testimonial-nav-btn testimonial-nav-prev">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
 
-        <div id="testimonial-track" class="testimonial-carousel-track">
-          <!-- Testimonial 1 (Rania Amina) -->
-          <div class="testimonial-carousel-item">
-            <div class="testimonial-card h-full fade-in">
-              <div class="flex items-start mb-4">
-                <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <div class="flex-1">
-                  <p class="text-lg text-gray-700 mb-6 italic">
-                    Sangat puas dengan layanan dan konsultasi perpajakan serta keuangan kantor dengan TMM. Penanganan
-                    case
-                    by case yang tepat sasaran dan komunikatif, sangat direkomendasikan untuk yang beneran tidak mau
-                    pusing dan ribet ihwal finansial perpajakan. Sudah dua tahun terbantu, semoga makin banyak yang
-                    terbantu juga.
-                  </p>
-                  <div class="flex items-center">
-                    <div>
-                      <p class="font-semibold text-tmm-navy text-lg">Pak Rania Amina</p>
-                      <p class="text-tmm-gold font-medium">Nenggala Kreatif Indonesia</p>
+        <div class="testimonial-carousel-container">
+          <div id="testimonial-track" class="testimonial-carousel-track">
+            <!-- Testimonial 1 (Rania Amina) -->
+            <div class="testimonial-carousel-item">
+              <div class="testimonial-card h-full fade-in">
+                <div class="flex items-start mb-4">
+                  <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <div class="flex-1">
+                    <p class="text-lg text-gray-700 mb-6 italic">
+                      Sangat puas dengan layanan dan konsultasi perpajakan serta keuangan kantor dengan TMM. Penanganan
+                      case
+                      by case yang tepat sasaran dan komunikatif, sangat direkomendasikan untuk yang beneran tidak mau
+                      pusing dan ribet ihwal finansial perpajakan. Sudah dua tahun terbantu, semoga makin banyak yang
+                      terbantu juga.
+                    </p>
+                    <div class="flex items-center">
+                      <div>
+                        <p class="font-semibold text-tmm-navy text-lg">Pak Rania Amina</p>
+                        <p class="text-tmm-gold font-medium">Nenggala Kreatif Indonesia</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Testimonial 2 (Iwan Tahari) -->
-          <div class="testimonial-carousel-item">
-            <div class="testimonial-card h-full fade-in">
-              <div class="flex items-start mb-4">
-                <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <div class="flex-1">
-                  <p class="text-lg text-gray-700 mb-6 italic">
-                    Kerja Tim TMMFlow Bagus dan Cepat, masalah administrasi Coretax dapat teratasi.
-                  </p>
-                  <div class="flex items-center">
-                    <div>
-                      <p class="font-semibold text-tmm-navy text-lg">Pak Iwan S. Tahari</p>
-                      <p class="text-tmm-gold font-medium">Sepatu Fans</p>
+            <!-- Testimonial 2 (Iwan Tahari) -->
+            <div class="testimonial-carousel-item">
+              <div class="testimonial-card h-full fade-in">
+                <div class="flex items-start mb-4">
+                  <svg class="w-10 h-10 text-tmm-gold mr-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <div class="flex-1">
+                    <p class="text-lg text-gray-700 mb-6 italic">
+                      Kerja Tim TMMFlow Bagus dan Cepat, masalah administrasi Coretax dapat teratasi.
+                    </p>
+                    <div class="flex items-center">
+                      <div>
+                        <p class="font-semibold text-tmm-navy text-lg">Pak Iwan S. Tahari</p>
+                        <p class="text-tmm-gold font-medium">Sepatu Fans</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -578,9 +579,9 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
         </button>
-
-        <div id="testimonial-dots" class="testimonial-dots"></div>
       </div>
+
+      <div id="testimonial-dots" class="testimonial-dots"></div>
     </div>
   </section>
 
@@ -678,13 +679,13 @@
       </div>
 
       <div class="border-t border-tmm-navy-light pt-8 text-center text-gray-400">
-        <p>&copy; 2026 TMM - Triruang Makna Manggala. All rights reserved.</p>
+        <p>&copy; <span id="current-year"></span>2026</span> TMM - Triruang Makna Manggala. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6281234567890?text=Halo%20TMM,%20saya%20ingin%20berkonsultasi" target="_blank"
+  <a href="https://wa.me/6285179926415?text=Halo%20TMM,%20saya%20ingin%20berkonsultasi" target="_blank"
     class="whatsapp-float" aria-label="Chat WhatsApp">
     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
       <path

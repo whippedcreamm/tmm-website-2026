@@ -354,6 +354,7 @@ function initTestimonialCarousel() {
 
     let currentIndex = 0;
     const totalItems = items.length;
+    let autoPlayInterval;
 
     // Create dots
     if (dotsContainer) {
@@ -361,7 +362,10 @@ function initTestimonialCarousel() {
         for (let i = 0; i < totalItems; i++) {
             const dot = document.createElement('div');
             dot.className = `testimonial-dot ${i === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => goToSlide(i));
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+                resetAutoPlay();
+            });
             dotsContainer.appendChild(dot);
         }
     }
@@ -385,14 +389,28 @@ function initTestimonialCarousel() {
         updateCarousel();
     }
 
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 7000); // 7 seconds
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+    }
+
     nextBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % totalItems;
         updateCarousel();
+        resetAutoPlay();
     });
 
     prevBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + totalItems) % totalItems;
         updateCarousel();
+        resetAutoPlay();
     });
 
     // Handle window resize
@@ -400,8 +418,63 @@ function initTestimonialCarousel() {
         updateCarousel();
     });
 
-    // Initial check
+    // Initial check and start auto-play
     updateCarousel();
+    startAutoPlay();
+}
+
+// ============================================
+// NUMBER COUNTER ANIMATION
+// ============================================
+function initNumberCounter() {
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200; // The lower the slower
+
+    const startCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        let count = 0;
+        const increment = target / speed;
+
+        const updateCount = () => {
+            if (count < target) {
+                count += increment;
+                el.innerText = Math.ceil(count) + suffix;
+                setTimeout(updateCount, 1);
+            } else {
+                el.innerText = target + suffix;
+            }
+        };
+
+        updateCount();
+    };
+
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
+// ============================================
+// FOOTER YEAR
+// ============================================
+function initFooterYear() {
+    const yearEl = document.getElementById('current-year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 }
 
 // ============================================
@@ -413,6 +486,8 @@ document.addEventListener('DOMContentLoaded', function () {
     initHeroCarousel();
     initClientCarousel();
     initTestimonialCarousel();
+    initNumberCounter();
+    initFooterYear();
     initSmoothScroll();
     initFormValidation();
     initScrollAnimations();
