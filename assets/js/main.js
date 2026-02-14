@@ -61,7 +61,7 @@ function initHeroCarousel() {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.carousel-dot');
     let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
+    const slideInterval = 10000; // 10 seconds
 
     if (slides.length === 0) return;
 
@@ -267,12 +267,87 @@ function initScrollAnimations() {
 }
 
 // ============================================
+// CLIENT CAROUSEL
+// ============================================
+function initClientCarousel() {
+    const track = document.getElementById('client-track');
+    const prevBtn = document.getElementById('client-prev');
+    const nextBtn = document.getElementById('client-next');
+    const items = document.querySelectorAll('.client-carousel-item');
+
+    if (!track || items.length === 0) return;
+
+    let currentIndex = 0;
+    const itemsToShow = getItemsToShow();
+    const totalItems = items.length;
+
+    function getItemsToShow() {
+        if (window.innerWidth <= 480) return 1;
+        if (window.innerWidth <= 768) return 2;
+        return 4;
+    }
+
+    function updateCarousel() {
+        const showCount = getItemsToShow();
+
+        // Reveal nav buttons only if total items > visible items
+        if (totalItems > showCount) {
+            prevBtn?.classList.add('visible');
+            nextBtn?.classList.add('visible');
+            track.style.justifyContent = 'flex-start';
+        } else {
+            prevBtn?.classList.remove('visible');
+            nextBtn?.classList.remove('visible');
+            track.style.justifyContent = 'center';
+            track.style.transform = 'translateX(0)';
+            return;
+        }
+
+        const itemWidth = items[0].getBoundingClientRect().width;
+        const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+        const offset = currentIndex * (itemWidth + gap);
+
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    nextBtn?.addEventListener('click', () => {
+        const showCount = getItemsToShow();
+        if (currentIndex < totalItems - showCount) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back
+        }
+        updateCarousel();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        const showCount = getItemsToShow();
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = Math.max(0, totalItems - showCount); // Loop to end
+        }
+        updateCarousel();
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        currentIndex = 0;
+        updateCarousel();
+    });
+
+    // Initial check
+    updateCarousel();
+}
+
+// ============================================
 // INITIALIZE ALL
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
     initMobileMenu();
     initNavbarScroll();
     initHeroCarousel();
+    initClientCarousel();
     initSmoothScroll();
     initFormValidation();
     initScrollAnimations();

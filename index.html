@@ -15,14 +15,14 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tmm.co.id/">
+  <meta property="og:url" content="https://tmmpro.co.id/">
   <meta property="og:title" content="TMM - Finance & Tax Consultant">
   <meta property="og:description"
     content="Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi jangka panjang.">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://tmm.co.id/">
+  <meta property="twitter:url" content="https://tmmpro.co.id/">
   <meta property="twitter:title" content="TMM - Finance & Tax Consultant">
   <meta property="twitter:description"
     content="Mitra profesional untuk solusi keuangan dan perpajakan yang akurat, efisien, dan berorientasi jangka panjang.">
@@ -32,6 +32,78 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./assets/css/styles.css">
+
+  <!-- Custom Styles for Index -->
+  <style>
+    .navbar-tmm {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .navbar-tmm.navbar-scrolled {
+      background-color: rgba(27, 58, 95, 0.95) !important;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Client Carousel Styles */
+    .client-carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .client-carousel-track {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.5s ease;
+      justify-content: center;
+    }
+
+    .client-carousel-item {
+      flex: 0 0 calc(25% - 1.5rem);
+      min-width: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .client-carousel-item {
+        flex: 0 0 calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .client-carousel-item {
+        flex: 0 0 100%;
+      }
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: white;
+      border-radius: 9999px;
+      padding: 10px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      cursor: pointer;
+      display: none;
+    }
+
+    .carousel-nav-btn.visible {
+      display: block;
+    }
+
+    .carousel-nav-prev {
+      left: 10px;
+    }
+
+    .carousel-nav-next {
+      right: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -94,8 +166,12 @@
   <!-- ============================================ -->
   <section class="relative">
     <!-- Slide 1: Bijak Hari Ini & Yakin Hari Esok -->
-    <div class="hero-slide">
-      <div class="container mx-auto px-4 md:px-8 text-center">
+    <div class="hero-slide relative overflow-hidden"
+      style="background-image: url('./assets/images/slide_01.jpg'); background-size: cover; background-position: center;">
+      <!-- Overlay for readability -->
+      <div class="absolute inset-0 bg-tmm-navy/70"></div>
+
+      <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in">
           Bijak Hari Ini & Yakin Hari Esok
         </h1>
@@ -113,8 +189,12 @@
     </div>
 
     <!-- Slide 2: Bersaing dengan Market -->
-    <div class="hero-slide hidden">
-      <div class="container mx-auto px-4 md:px-8 text-center">
+    <div class="hero-slide hidden relative overflow-hidden"
+      style="background-image: url('./assets/images/slide_02.jpg'); background-size: cover; background-position: center;">
+      <!-- Overlay for readability -->
+      <div class="absolute inset-0 bg-tmm-navy/70"></div>
+
+      <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           Bersaing dengan Market & Siap Jadi Unggul
         </h1>
@@ -132,11 +212,18 @@
     </div>
 
     <!-- Slide 3: Bridging Statement -->
-    <div class="hero-slide hidden">
-      <div class="container mx-auto px-4 md:px-8 text-center">
+    <div class="hero-slide hidden relative overflow-hidden"
+      style="background-image: url('./assets/images/slide_03.jpg'); background-size: cover; background-position: center;">
+      <!-- Overlay for readability -->
+      <div class="absolute inset-0 bg-tmm-navy/70"></div>
+
+      <div class="container mx-auto px-4 md:px-8 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           Asisten Perpajakan dan Financial Advisor?
         </h1>
+        <p class="text-xl md:text-2xl mb-4 text-tmm-gold-light font-semibold">
+          Perencanaan Pajak dengan Baik dan Benar
+        </p>
         <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-gray-200">
           Kami berkomitmen memberikan layanan terbaik dengan mengutamakan ketepatan, efisiensi, dan
           perencanaan dengan mengikuti standar keuangan.
@@ -311,19 +398,39 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-        <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
-          <span class="text-2xl font-bold text-tmm-navy">IMTEK</span>
+      <div class="client-carousel-container fade-in">
+        <button id="client-prev" class="carousel-nav-btn carousel-nav-prev">
+          <svg class="w-6 h-6 text-tmm-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <div id="client-track" class="client-carousel-track">
+          <div class="client-carousel-item">
+            <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+              <img src="./assets/images/client-imtek.png" alt="IMTEK"
+                class="h-12 md:h-16 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+            </div>
+          </div>
+          <div class="client-carousel-item">
+            <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+              <img src="./assets/images/client-nenggala.png" alt="Nenggala"
+                class="h-12 md:h-16 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+            </div>
+          </div>
+          <div class="client-carousel-item">
+            <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg">
+              <img src="./assets/images/client-fans.png" alt="FANS"
+                class="h-12 md:h-16 grayscale hover:grayscale-0 transition-all opacity-80 hover:opacity-100">
+            </div>
+          </div>
         </div>
-        <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
-          <span class="text-2xl font-bold text-tmm-navy">OpenInfra</span>
-        </div>
-        <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
-          <span class="text-2xl font-bold text-tmm-navy">Nenggala</span>
-        </div>
-        <div class="flex items-center justify-center p-6 bg-gray-50 rounded-lg fade-in">
-          <span class="text-2xl font-bold text-tmm-navy">FANS</span>
-        </div>
+
+        <button id="client-next" class="carousel-nav-btn carousel-nav-next">
+          <svg class="w-6 h-6 text-tmm-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
@@ -357,8 +464,8 @@
                   B
                 </div>
                 <div>
-                  <p class="font-semibold text-tmm-navy">Bpk. Bambang</p>
-                  <p class="text-gray-600 text-sm">Klien TMM</p>
+                  <p class="font-semibold text-tmm-navy">Pak Iwan S. Tahari</p>
+                  <p class="text-gray-600 text-sm">Sepatu Fans</p>
                 </div>
               </div>
             </div>
