@@ -27,8 +27,10 @@ jQuery( document ).ready(function( $ ) {
 
           if (scroll >= box - header) {
             $("header").addClass("background-header");
+            $(".navbar-brand img").attr("src", "assets/images/tmm-ori-2026.svg");
           } else {
             $("header").removeClass("background-header");
+            $(".navbar-brand img").attr("src", "assets/images/tmm-white-2026.svg");
           }
         });
 		if ($('.owl-testimonials').length) {

@@ -1,0 +1,4 @@
+---
+deployment:
+  tasks:
+    - /bin/rsync -av --delete ./templatemo_545_finance_business/ /home/zzahpiyx/public_html/
