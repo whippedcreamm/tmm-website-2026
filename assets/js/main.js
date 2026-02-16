@@ -141,67 +141,110 @@ function initSmoothScroll() {
 // ============================================
 function initFormValidation() {
     const contactForm = document.getElementById('contact-form');
-
     if (!contactForm) return;
 
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Clear previous errors
-        clearErrors();
+        try {
+            // Clear previous errors
+            clearErrors();
 
-        let isValid = true;
+            let isValid = true;
 
-        // Get form fields
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const phone = document.getElementById('phone');
-        const message = document.getElementById('message');
+            // Get form fields
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
 
-        // Validate name
-        if (!name.value.trim()) {
-            showError(name, 'Nama lengkap wajib diisi');
-            isValid = false;
-        }
+            if (!name || !email || !phone || !message) {
+                console.error('Beberapa kolom formulir tidak ditemukan di DOM');
+                return;
+            }
 
-        // Validate email
-        if (!email.value.trim()) {
-            showError(email, 'Email wajib diisi');
-            isValid = false;
-        } else if (!isValidEmail(email.value)) {
-            showError(email, 'Format email tidak valid');
-            isValid = false;
-        }
+            // Validate name
+            if (!name.value.trim()) {
+                showError(name, 'Nama lengkap wajib diisi');
+                isValid = false;
+            }
 
-        // Validate phone
-        if (!phone.value.trim()) {
-            showError(phone, 'Nomor telepon wajib diisi');
-            isValid = false;
-        } else if (!isValidPhone(phone.value)) {
-            showError(phone, 'Format nomor telepon tidak valid');
-            isValid = false;
-        }
+            // Validate email
+            if (!email.value.trim()) {
+                showError(email, 'Email wajib diisi');
+                isValid = false;
+            } else if (!isValidEmail(email.value)) {
+                showError(email, 'Format email tidak valid');
+                isValid = false;
+            }
 
-        // Validate message
-        if (!message.value.trim()) {
-            showError(message, 'Pesan wajib diisi');
-            isValid = false;
-        }
+            // Validate phone
+            if (!phone.value.trim()) {
+                showError(phone, 'Nomor telepon wajib diisi');
+                isValid = false;
+            } else if (!isValidPhone(phone.value)) {
+                showError(phone, 'Format nomor telepon tidak valid');
+                isValid = false;
+            }
 
-        if (isValid) {
-            showSuccess();
-            // Here you would normally send the form data to a server
-            // For now, we'll just reset the form
-            setTimeout(() => {
-                contactForm.reset();
-                hideSuccess();
-            }, 3000);
+            // Validate message
+            if (!message.value.trim()) {
+                showError(message, 'Pesan wajib diisi');
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Change button state to loading
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Mengirim...';
+
+                // Prepare form data
+                const formData = new FormData(contactForm);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+
+                // Send to Web3Forms API
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                    .then(async (response) => {
+                        let result = await response.json();
+                        if (response.status == 200) {
+                            showSuccess();
+                            contactForm.reset();
+                        } else {
+                            console.log(response);
+                            alert(result.message || "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        alert("Terjadi kesalahan jaringan. Silakan periksa koneksi Anda.");
+                    })
+                    .finally(() => {
+                        // Restore button state
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalBtnText;
+                    });
+            }
+        } catch (error) {
+            console.error('Form execution error:', error);
         }
     });
 }
 
 function showError(input, message) {
+    if (!input) return;
     const formGroup = input.parentElement;
+    if (!formGroup) return;
+
     const errorDiv = document.createElement('div');
     errorDiv.className = 'text-red-500 text-sm mt-1 error-message';
     errorDiv.textContent = message;
@@ -217,17 +260,23 @@ function clearErrors() {
 }
 
 function showSuccess() {
-    const successDiv = document.getElementById('form-success');
-    if (successDiv) {
-        successDiv.classList.remove('hidden');
+    const successModal = document.getElementById('form-success-modal');
+    if (successModal) {
+        successModal.showModal();
     }
 }
 
 function hideSuccess() {
-    const successDiv = document.getElementById('form-success');
-    if (successDiv) {
-        successDiv.classList.add('hidden');
+    const successModal = document.getElementById('form-success-modal');
+    if (successModal) {
+        successModal.close();
     }
+}
+
+function initModalClose() {
+    // DaisyUI/Native dialog handles close via method="dialog" forms 
+    // and ESC key automatically. 
+    // We only need this if we want specific custom event logic.
 }
 
 function isValidEmail(email) {
@@ -277,67 +326,86 @@ function initClientCarousel() {
 
     if (!track || items.length === 0) return;
 
-    let currentIndex = 0;
-    const itemsToShow = getItemsToShow();
-    const totalItems = items.length;
+    let autoPlayInterval;
+    let isTransitioning = false;
 
-    function getItemsToShow() {
-        if (window.innerWidth <= 480) return 1;
-        if (window.innerWidth <= 768) return 2;
-        return 4;
+    function moveRight() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const items = track.querySelectorAll('.client-carousel-item');
+        const lastItem = items[items.length - 1];
+        const itemWidth = lastItem.getBoundingClientRect().width;
+        const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+        const fullShift = itemWidth + gap;
+
+        // Move the last item to the beginning
+        track.insertBefore(lastItem, items[0]);
+
+        // Instantly move track to the left by one item width (no animation)
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${fullShift}px)`;
+
+        // Force a reflow
+        track.offsetHeight;
+
+        // Animate back to 0
+        track.style.transition = 'transform 0.6s ease-in-out';
+        track.style.transform = 'translateX(0)';
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600);
     }
 
-    function updateCarousel() {
-        const showCount = getItemsToShow();
+    function moveLeft() {
+        if (isTransitioning) return;
+        isTransitioning = true;
 
-        // Reveal nav buttons only if total items > visible items
-        if (totalItems > showCount) {
-            prevBtn?.classList.add('visible');
-            nextBtn?.classList.add('visible');
-            track.style.justifyContent = 'flex-start';
-        } else {
-            prevBtn?.classList.remove('visible');
-            nextBtn?.classList.remove('visible');
-            track.style.justifyContent = 'center';
-            track.style.transform = 'translateX(0)';
-            return;
-        }
-
-        const itemWidth = items[0].getBoundingClientRect().width;
+        const items = track.querySelectorAll('.client-carousel-item');
+        const firstItem = items[0];
+        const itemWidth = firstItem.getBoundingClientRect().width;
         const gap = parseInt(window.getComputedStyle(track).gap) || 0;
-        const offset = currentIndex * (itemWidth + gap);
+        const fullShift = itemWidth + gap;
 
-        track.style.transform = `translateX(-${offset}px)`;
+        // Animate move to the left
+        track.style.transition = 'transform 0.6s ease-in-out';
+        track.style.transform = `translateX(-${fullShift}px)`;
+
+        setTimeout(() => {
+            track.style.transition = 'none';
+            track.appendChild(firstItem);
+            track.style.transform = 'translateX(0)';
+            isTransitioning = false;
+        }, 600);
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayInterval = setInterval(moveRight, 2000); // Moves content to the RIGHT
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
     }
 
     nextBtn?.addEventListener('click', () => {
-        const showCount = getItemsToShow();
-        if (currentIndex < totalItems - showCount) {
-            currentIndex++;
-        } else {
-            currentIndex = 0; // Loop back
-        }
-        updateCarousel();
+        moveRight();
+        startAutoPlay();
     });
 
     prevBtn?.addEventListener('click', () => {
-        const showCount = getItemsToShow();
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = Math.max(0, totalItems - showCount); // Loop to end
-        }
-        updateCarousel();
+        moveLeft();
+        startAutoPlay();
     });
 
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        currentIndex = 0;
-        updateCarousel();
-    });
+    // Pause autoplay on hover
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
 
-    // Initial check
-    updateCarousel();
+    // Initial check and start auto-play
+    track.style.transform = 'translateX(0)';
+    startAutoPlay();
 }
 
 // ============================================
@@ -478,6 +546,89 @@ function initFooterYear() {
 }
 
 // ============================================
+// DYNAMIC FOOTER SERVICES
+// ============================================
+function initDynamicFooterServices() {
+    const footerList = document.getElementById('footer-services-list');
+    if (!footerList) return;
+
+    // 1. Try to get from localStorage (cache)
+    const cachedServices = localStorage.getItem('tmm_services_cache');
+    if (cachedServices) {
+        renderFooterServices(JSON.parse(cachedServices));
+    }
+
+    // 2. Update cache
+    // If we are on layanan.html, we can scrape directly from the DOM
+    if (window.location.pathname.includes('layanan.html')) {
+        const serviceHeaders = document.querySelectorAll('section[id] h2');
+        const services = [];
+
+        serviceHeaders.forEach(h2 => {
+            const section = h2.closest('section');
+            if (section && section.id && !['hero', 'process', 'cta', 'statistics', 'clients', 'testimonials'].includes(section.id)) {
+                // Extract clean title (e.g. "Pembukuan (Bookkeeping)" -> "Pembukuan")
+                const fullTitle = h2.textContent.trim();
+                const cleanTitle = fullTitle.split('(')[0].trim();
+                services.push({
+                    id: section.id,
+                    title: cleanTitle
+                });
+            }
+        });
+
+        if (services.length > 0) {
+            localStorage.setItem('tmm_services_cache', JSON.stringify(services));
+            renderFooterServices(services);
+        }
+    } else {
+        // If not on layanan.html and cache is missing or we want to double check, 
+        // fetch it in background (throttle this in production, but here it's fine)
+        fetch('layanan.html')
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const serviceHeaders = doc.querySelectorAll('section[id] h2');
+                const services = [];
+
+                serviceHeaders.forEach(h2 => {
+                    const section = h2.closest('section');
+                    if (section && section.id && !['hero', 'process', 'cta', 'statistics', 'clients', 'testimonials'].includes(section.id)) {
+                        const fullTitle = h2.textContent.trim();
+                        const cleanTitle = fullTitle.split('(')[0].trim();
+                        services.push({
+                            id: section.id,
+                            title: cleanTitle
+                        });
+                    }
+                });
+
+                if (services.length > 0) {
+                    localStorage.setItem('tmm_services_cache', JSON.stringify(services));
+                    renderFooterServices(services);
+                }
+            })
+            .catch(err => console.error('Error syncing footer services:', err));
+    }
+
+    function renderFooterServices(services) {
+        if (!footerList) return;
+        footerList.innerHTML = '';
+
+        services.forEach(service => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = `layanan.html#${service.id}`;
+            a.className = 'text-gray-300 hover:text-tmm-gold transition-colors';
+            a.textContent = service.title;
+            li.appendChild(a);
+            footerList.appendChild(li);
+        });
+    }
+}
+
+// ============================================
 // INITIALIZE ALL
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -491,4 +642,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initSmoothScroll();
     initFormValidation();
     initScrollAnimations();
+    initDynamicFooterServices();
+    initModalClose();
 });
